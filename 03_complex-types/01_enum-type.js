@@ -27,12 +27,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
          상수3 = "값3",
        }
 */
-// 만일 우리가 허용하는 색상값이 RED, GREEN, BLUE 뿐일 경우
+// 만일 우리가 허용하는 색상값이 RED, GREEN, BLUE 뿐일 경우 
+// - 타입 정의 
 var Color;
 (function (Color) {
     Color[Color["RED"] = 0] = "RED";
     Color[Color["GREEN"] = 1] = "GREEN";
-    Color[Color["BLUE"] = 2] = "BLUE";
+    Color[Color["BLUE"] = 2] = "BLUE"; // 2
 })(Color || (Color = {}));
 console.log(Color);
 console.log(Color.RED);
@@ -40,9 +41,10 @@ console.log(Color.RED);
 var col;
 col = Color.RED;
 col = Color.GREEN;
-//col = Color.YELLOW;
-console.log(col);
-// 만일 우리 시스템의 사용자 권한이 ADMIN, USER, GUEST 외에는 허용하지 않는다면?
+col = Color.BLUE;
+// col = Color.YELLOW;
+console.log(col); // 2
+// 만일 우리 시스템의 사용자 권한이  ADMIN, USER, GUEST 외에는 허용하지 않는다면?
 var Role;
 (function (Role) {
     Role["ADMIN"] = "ADMIN";
@@ -54,13 +56,10 @@ var user;
 user = {
     name: '홍길동',
     age: 20,
-    role: Role.ADMIN
+    role: Role.USER
 };
-//console.log(user)
+console.log(user);
+// 사용자의 권한의 USER인지 확인하고 싶다면?
 if (user.role === Role.USER) {
     console.log('해당 사용자는 일반 사용자입니다.');
 }
-
-// type Greeting = `[Hello ${Name}]`;
-// let message: Greeting = 'Hello Kim';
-// messag = 'Hello Lee'

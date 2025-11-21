@@ -13,19 +13,66 @@ export {}
   5. 타입별칭은 변수명과의 구분을 위해 대문자로 시작하는걸 권장
 */
 
-// type Greeting = `[Hello ${Name}]`;
-// let message: Greeting = 'Hello Kim';
-// messag = 'Hello Lee'
+// 1) 기본 타입 별칭
+type Age = number;
+let userAge: Age = 30;
+userAge = 40;
+// userAge = '50';
+
+// 2) 리터럴 타입 별칭
+type Name = 'Kim' | 'Lee' | 'Park';
+let userName: Name = 'Kim';
+userName = 'Lee';
+// userName = 'Kang';
+
+
+type Greeting = `Hello ${Name}`; // TypeScript 4.1 이상부터
+let message: Greeting = 'Hello Kim';
+message = 'Hello Lee';
+// message = 'Hello Kang';
+
+
+type StatusCode = 200 | 400 | 404 | 500;
+let status: StatusCode = 200;
+
+
+// 3) 객체 타입 별칭 
+type User = {
+  id: number | string,
+  name: Name, 
+  email: string,
+  isAdmin: boolean
+}
+
+let user1: User = {
+  id: 1,
+  name: "Kim",
+  email: "kim@example.com",
+  isAdmin: false
+};
+console.log(user1);
+
+let user2: User = {
+  id: "2",
+  name: "Park",
+  email: "park@example.com",
+  isAdmin: true
+}
+
+let users: User[] = [
+  {id: 3, name: "Lee", email: "lee@example.com", isAdmin: false},
+]
+
 
 type Person = {
   name: string,
   age: number,
-  job?: string
-};
+  job?: string // ? : optional, 선택적 속성 
+}
 
 let person1: Person = {
   name: '김말똥',
-  age: 30,
+  age: 30, 
   job: '개발자'
 };
 
@@ -36,13 +83,12 @@ let person2: Person = {
 }
 
 type ApiKey = {
-  apiName: string,
-  apiKey: string
+  readonly apiName: string, // readonly 속성: 속성 수정 불가(읽기 전용)
+  readonly apiKey: string
 }
 
 let kakaoApi: ApiKey = {
   apiName: 'kakao',
-  apiKey: '12312412313asdasdq'
+  apiKey: '123091239873a123'
 }
-
-kakaoApi.apiKey = 'qweqwewqewq123123213123';
+// kakaoApi.apiKey = 'sdfsdf123123'; // 값 초기화 이후 속성 수정 불가능

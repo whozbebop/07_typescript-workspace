@@ -28,49 +28,53 @@ export {}
        }
 */
 
-// 만일 우리가 허용하는 색상값이 RED, GREEN, BLUE 뿐일 경우
+// 만일 우리가 허용하는 색상값이 RED, GREEN, BLUE 뿐일 경우 
+// - 타입 정의 
 enum Color {
-  RED,
-  GREEN,
-  BLUE
+  RED,    // 0
+  GREEN,  // 1
+  BLUE    // 2
 }
 
-console.log(Color);
+console.log(Color)
 console.log(Color.RED);
 
 // - 타입 사용
 let col: Color;
 col = Color.RED;
 col = Color.GREEN;
-//col = Color.YELLOW;
+col = Color.BLUE;
+// col = Color.YELLOW;
 
-console.log(col)
+console.log(col) // 2
 
-// 만일 우리 시스템의 사용자 권한이 ADMIN, USER, GUEST 외에는 허용하지 않는다면?
+// 만일 우리 시스템의 사용자 권한이  ADMIN, USER, GUEST 외에는 허용하지 않는다면?
 enum Role {
-  ADMIN = "ADMIN",
-  USER = "USER",
-  GUEST = "GUEST"
+  ADMIN = "ADMIN",  
+  USER = "USER",   
+  GUEST = "GUEST"   
 }
 
-console.log(Role.ADMIN);
+console.log(Role.ADMIN)
 
 let user: {
   name: string,
   age: number,
   role: Role
-}
+};
 
 user = {
   name: '홍길동',
   age: 20,
-  role: Role.ADMIN
+  role: Role.USER
 };
 
-//console.log(user)
+console.log(user)
 
+// 사용자의 권한의 USER인지 확인하고 싶다면?
 if(user.role === Role.USER) {
   console.log('해당 사용자는 일반 사용자입니다.')
 }
 
-// union + 리터럴 로도 대체 가능
+
+// union + 리터럴 로도 대체 가능 

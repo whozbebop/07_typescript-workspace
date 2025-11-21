@@ -11,21 +11,23 @@ export {}
 let union1: number | string;
 union1 = 10;
 union1 = 'hello';
+// union1 = true;
 
 let union2: (number | string)[];
 union2 = [1, 2, 'hello'];
 union2 = ['hello', 'world'];
-//union2 = [1, 'hello', boolean];
+// union2 = [1, 'hello', true];
 
 // 방향에 대한 값(up, down, left, right)
 let direction: "up" | "down" | "left" | "right";
-direction: "up";
-direction: "north";
+direction = "right";
+// direction = "north";
 
 let user: {
   name: string,
   age: number,
   role: "ADMIN" | "USER" | "GUEST"
-}
+};
 
-let product: {} | null
+
+let product: {} | null;
